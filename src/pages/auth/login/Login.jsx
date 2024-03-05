@@ -1,7 +1,13 @@
-import React from "react";
+import wave from "assets/wave.svg";
+import Form from "components/login/Form";
 
 function Login() {
-  return <div>Login</div>;
+  return (
+    <>
+      <Form />
+      <img src={wave} alt="" />
+    </>
+  );
 }
 
 export default Login;
