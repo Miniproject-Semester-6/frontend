@@ -1,7 +1,5 @@
-import { useNavigate, Link } from "react-router-dom";
-
-// library
-import { ArrowUturnLeftIcon, HomeIcon } from "@heroicons/react/24/solid";
+import { useNavigate } from "react-router-dom";
+import { ArrowUturnLeftIcon } from "@heroicons/react/24/solid";
 
 function NotFound404() {
   const navigate = useNavigate();
