@@ -14,7 +14,13 @@ const RedirectTo = () => {
 function ProtectedRoutes() {
   const authToken = DEMO_AUTHENTICATION;
 
-  return authToken ? <Outlet /> : <RedirectTo />;
+  return authToken ? (
+    <main>
+      <Outlet />
+    </main>
+  ) : (
+    <RedirectTo />
+  );
 }
 
 export default ProtectedRoutes;
