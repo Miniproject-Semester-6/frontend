@@ -3,6 +3,7 @@ import { Navigate } from "react-router-dom";
 import Login from "pages/auth/login/Login";
 import Home from "pages/home/Home";
 import CreateOrganization from "pages/auth/createOrganization/CreateOrganization";
+import BudgetOverview from "pages/budgetOverview/BudgetOverview";
 
 export const authRoutes = [
   {
@@ -27,5 +28,10 @@ export const protectedRoutes = [
     path: "/home",
     component: <Home />,
     title: "Home",
+  },
+  {
+    path: "/budget-overview/:id",
+    component: <BudgetOverview />,
+    title: "Budget Overview",
   },
 ];
