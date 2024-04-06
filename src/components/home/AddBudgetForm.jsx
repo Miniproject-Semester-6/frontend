@@ -1,6 +1,6 @@
 // library
 import { useRef } from "react";
-import { CurrencyDollarIcon } from "@heroicons/react/24/solid";
+import { CurrencyRupeeIcon } from "@heroicons/react/24/solid";
 
 export default function AddBudgetForm() {
   const formRef = useRef();
@@ -36,7 +36,7 @@ export default function AddBudgetForm() {
         <input type="hidden" name="_action" value="createBudget" />
         <button type="submit" className="btn btn--dark">
           <span>Create budget</span>
-          <CurrencyDollarIcon width={20} />
+          <CurrencyRupeeIcon width={20} />
         </button>
       </form>
     </div>
