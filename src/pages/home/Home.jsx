@@ -17,11 +17,11 @@ function Home() {
               <div className="flex-col-lg">
                 <div className="flex-col-sm">
                   <h2>Organization Budget</h2>
-                  <h2 className="accent">{formatCurrency(20000)}</h2>
+                  <h2 className="accent">{formatCurrency(20000000)}</h2>
                 </div>
                 <div className="flex-col-sm">
                   <h2>Budget Allocated</h2>
-                  <h2 className="accent">{formatCurrency(200)}</h2>
+                  <h2 className="accent">{formatCurrency(2000000)}</h2>
                 </div>
               </div>
             </div>

@@ -15,7 +15,7 @@ export default function BudgetOverview() {
       }}
     >
       <h1 className="h2">
-        <span className="accent">{budget.name}</span>
+        <span className="accent">{budget.name} </span>
         Overview
       </h1>
       <div className="flex-lg">
@@ -26,10 +26,7 @@ export default function BudgetOverview() {
       {expenses && expenses.length > 0 && (
         <div className="grid-md">
           <h2>
-            <span className="accent">
-              {budget.name}
-              Expenses
-            </span>
+            <span className="accent">{budget.name} Expenses</span>
           </h2>
           <ExpenseTable expenses={expenses} showBudget={false} />
         </div>
