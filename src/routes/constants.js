@@ -2,7 +2,6 @@ import { Navigate } from "react-router-dom";
 
 import Login from "pages/auth/login/Login";
 import Home from "pages/home/Home";
-import CreateOrganization from "pages/auth/createOrganization/CreateOrganization";
 import BudgetOverview from "pages/budgetOverview/BudgetOverview";
 
 export const authRoutes = [
@@ -19,11 +18,6 @@ export const authRoutes = [
 ];
 
 export const protectedRoutes = [
-  {
-    path: "/create-organization",
-    component: <CreateOrganization />,
-    title: "Create Organization",
-  },
   {
     path: "/home",
     component: <Home />,

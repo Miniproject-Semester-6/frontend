@@ -238,6 +238,32 @@ p {
   gap: var(--space-sm);
 }
 
+.flex-col-sm {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  -webkit-box-align: start;
+  -ms-flex-align: start;
+  align-items: start;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+.flex-col-lg {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  -webkit-box-align: start;
+  -ms-flex-align: start;
+  align-items: start;
+  flex-direction: column;
+  gap: var(--space-lg);
+}
+
 .grid-lg {
   display: -ms-grid;
   display: grid;
