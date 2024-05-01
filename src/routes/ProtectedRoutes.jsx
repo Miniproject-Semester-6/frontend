@@ -1,8 +1,6 @@
 import React, { useEffect } from "react";
 import { Outlet, useNavigate } from "react-router-dom";
 
-import { DEMO_AUTHENTICATION } from "constants/constant";
-
 const RedirectTo = () => {
   const navigate = useNavigate();
 
@@ -12,7 +10,7 @@ const RedirectTo = () => {
 };
 
 function ProtectedRoutes() {
-  const authToken = DEMO_AUTHENTICATION;
+  const authToken = localStorage.getItem("token");
 
   return authToken ? (
     <main>

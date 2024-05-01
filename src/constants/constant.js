@@ -1,4 +1,3 @@
-export const DEMO_AUTHENTICATION = true;
 export const budgets = [
   {
     id: "ed7a328d-2450-47a9-839b-744ebcb3c80a",
