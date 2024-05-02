@@ -15,7 +15,7 @@ export default function ExpenseTable({ expenses, showBudget = true }) {
         </thead>
         <tbody>
           {expenses.map((expense) => (
-            <tr key={expense.id}>
+            <tr key={expense._id}>
               <ExpenseItem expense={expense} showBudget={showBudget} />
             </tr>
           ))}

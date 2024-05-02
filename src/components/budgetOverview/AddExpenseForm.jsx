@@ -1,16 +1,23 @@
 import { PlusCircleIcon } from "@heroicons/react/24/solid";
 
-export default function AddExpenseForm({ budgets }) {
+export default function AddExpenseForm({
+  budget,
+  expense,
+  setExpense,
+  createExpense,
+}) {
   return (
     <div className="form-wrapper">
       <h2 className="h3">
-        Add New{" "}
-        <span className="accent">
-          {budgets.length === 1 && `${budgets.map((budget) => budget.name)}`}
-        </span>{" "}
-        Expense
+        Add New <span className="accent">{budget.name}</span> Expense
       </h2>
-      <form method="post" className="grid-sm">
+      <form
+        className="grid-sm"
+        onSubmit={(e) => {
+          e.preventDefault();
+          createExpense(expense);
+        }}
+      >
         <div className="expense-inputs">
           <div className="grid-xs">
             <label htmlFor="newExpense">Expense Name</label>
@@ -18,36 +25,29 @@ export default function AddExpenseForm({ budgets }) {
               type="text"
               name="newExpense"
               id="newExpense"
-              placeholder="e.g.,Coffee"
+              placeholder="e.g. Invoices"
               required
+              value={expense.name}
+              onChange={(e) => setExpense({ ...expense, name: e.target.value })}
             />
           </div>
           <div className="grid-xs">
-            <label htmlFor="newExpenseAmount"> Amount</label>
+            <label htmlFor="newExpenseAmount">Amount</label>
             <input
               type="number"
               step="0.01"
               inputMode=" decimal"
               name="newExpenseAmount"
               id="newExpenseAmount"
-              placeholder="e.g., 3.50"
+              placeholder="e.g. ₹4,000"
               required
+              min={0}
+              value={expense.amount}
+              onChange={(e) =>
+                setExpense({ ...expense, amount: e.target.value })
+              }
             />
           </div>
-        </div>
-        <div className="grid-xs" hidden={budgets.length === 1}>
-          <label htmlFor="newExpenseBudget">Budget Category</label>
-          <select name="newExpenseBudget" id="newExpenseBudget" required>
-            {budgets
-              .sort((a, b) => a.createdAt - b.createdAt)
-              .map((budget) => {
-                return (
-                  <option value={budget.id} key={budget.id}>
-                    {budget.name}
-                  </option>
-                );
-              })}
-          </select>
         </div>
         <input type="hidden" name="_action" value="createExpense" />
         <button type="submit" className="btn btn--dark">

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 import restClient from "restClient";
@@ -27,12 +27,18 @@ function Login() {
 
       if ((response.status = "success")) {
         localStorage.setItem("token", response.data.token);
+        localStorage.setItem("username", response.data.username);
         navigate("/select-organization");
       }
     } catch (error) {
       console.log(error);
     }
   };
+
+  useEffect(() => {
+    if (localStorage.getItem("token")) navigate("/select-organization");
+  }, []);
+
   return (
     <>
       <Form {...{ email, password, setEmail, setPassword, onSubmitHandler }} />

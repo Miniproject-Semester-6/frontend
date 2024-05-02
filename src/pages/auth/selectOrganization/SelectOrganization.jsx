@@ -6,9 +6,17 @@ import wave from "assets/wave.svg";
 import Form from "components/selectOrganization/Form";
 
 function SelectOrganization() {
+  const orgname = localStorage.getItem("orgname");
+  const orgid = localStorage.getItem("orgid");
+  const role = localStorage.getItem("role");
+
   const navigate = useNavigate();
   const [orgs, setOrgs] = useState([]);
-  const [selectedOrg, setSelectedOrg] = useState({});
+  const [selectedOrg, setSelectedOrg] = useState({
+    name: orgname || "",
+    id: orgid || "",
+    role: role || "",
+  });
 
   const getUserOrgs = async () => {
     try {
@@ -37,6 +45,10 @@ function SelectOrganization() {
 
     navigate("/home");
   };
+
+  useEffect(() => {
+    if (localStorage.getItem("orgid")) navigate("/home");
+  }, []);
 
   useEffect(() => {
     getUserOrgs();

@@ -587,7 +587,7 @@ table {
 }
 
 tr:nth-child(odd) {
-  background-color: hsl(var(--accent) / 0.04);
+  background-color: rgba(29, 187, 195, 0.04);
 }
 
 td {
@@ -626,4 +626,10 @@ table a {
   height: 100vh;
   display: flex;
   flex-direction: column;
+}
+
+.org_selector {
+  max-width: 24ch;
+  margin-left: auto;
+  margin-right: var(--space-sm);
 }
