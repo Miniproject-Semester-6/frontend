@@ -20,11 +20,6 @@ export const authRoutes = [
 
 export const protectedRoutes = [
   {
-    path: "/select-organization",
-    component: <SelectOrganization />,
-    title: "Select Organization",
-  },
-  {
     path: "/home",
     component: <Home />,
     title: "Home",
@@ -34,5 +29,13 @@ export const protectedRoutes = [
     path: "/budget-overview/:id",
     component: <BudgetOverview />,
     title: "Budget Overview",
+  },
+];
+
+export const protectedRoutesWithoutLayout = [
+  {
+    path: "/select-organization",
+    component: <SelectOrganization />,
+    title: "Select Organization",
   },
 ];

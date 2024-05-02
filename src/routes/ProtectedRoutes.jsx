@@ -12,13 +12,7 @@ const RedirectTo = () => {
 function ProtectedRoutes() {
   const authToken = localStorage.getItem("token");
 
-  return authToken ? (
-    <main>
-      <Outlet />
-    </main>
-  ) : (
-    <RedirectTo />
-  );
+  return authToken ? <Outlet /> : <RedirectTo />;
 }
 
 export default ProtectedRoutes;

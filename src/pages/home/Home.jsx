@@ -2,8 +2,33 @@ import AddBudgetForm from "components/home/AddBudgetForm";
 import BudgetItem from "components/home/BudgetItem";
 import { budgets } from "constants/constant";
 import { formatCurrency } from "helpers/helpers";
+import { useEffect } from "react";
+import restClient from "restClient";
 
 function Home() {
+  const getBudgets = async () => {
+    const orgid = localStorage.getItem("orgid");
+    try {
+      const { data: response } = await restClient({
+        method: "GET",
+        url: `/budget?orgid=${orgid}`,
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem("token")}`,
+        },
+      });
+
+      if (response.status === "success") {
+        console.log(response.data);
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  useEffect(() => {
+    getBudgets();
+  }, []);
+
   return (
     <div className="dashboard">
       <h1>

@@ -404,6 +404,7 @@ select {
   -ms-flex-pack: center;
   justify-content: center;
   gap: var(--space-lg);
+  flex-grow: 1;
 }
 
 .intro div {
@@ -619,4 +620,10 @@ table a {
 /* toast */
 .Toastify__toast-body {
   font-size: var(--fs-300);
+}
+
+.auth_cont {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
