@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 
 import restClient from "restClient";
 import wave from "assets/wave.svg";
@@ -28,10 +29,13 @@ function Login() {
       if ((response.status = "success")) {
         localStorage.setItem("token", response.data.token);
         localStorage.setItem("username", response.data.username);
+
+        toast.success("Logged in successfully");
         navigate("/select-organization");
       }
     } catch (error) {
       console.log(error);
+      toast.error(error.response.data.message);
     }
   };
 

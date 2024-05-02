@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import { toast } from "react-toastify";
 
 import restClient from "restClient";
 import BudgetItem from "components/home/BudgetItem";
@@ -55,9 +56,11 @@ export default function BudgetOverview() {
       if (response.status === "success") {
         getExpenses();
         setExpense({ name: "", amount: "" });
+        toast.success("Expense created successfully");
       }
     } catch (error) {
       console.log(error);
+      toast.error(error.response.data.message);
     }
   };
 

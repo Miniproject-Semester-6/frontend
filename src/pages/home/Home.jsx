@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { toast } from "react-toastify";
 
 import restClient from "restClient";
 import AddBudgetForm from "components/home/AddBudgetForm";
@@ -54,9 +55,11 @@ function Home() {
       if (response.status === "success") {
         getBudgets();
         setBudget({ name: "", amount: "" });
+        toast.success("Budget created successfully");
       }
     } catch (error) {
       console.log(error);
+      toast.error(error.response.data.message);
     }
   };
 

@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 
 import restClient from "restClient";
 import logomark from "assets/logomark.svg";
@@ -30,6 +31,8 @@ function Navigation() {
 
   const logoutHandler = () => {
     localStorage.clear();
+
+    toast.success("Logged out successfully");
     navigate("/login");
   };
 
