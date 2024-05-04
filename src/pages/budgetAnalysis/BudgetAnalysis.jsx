@@ -39,9 +39,6 @@ export default function BudgetAnalysis() {
     return expense ? expense.amount : 0;
   });
 
-  console.log(forecastY, expenseY);
-  console.log(dateArray);
-
   const getExpenses = async () => {
     try {
       const { data: response } = await restClient({
