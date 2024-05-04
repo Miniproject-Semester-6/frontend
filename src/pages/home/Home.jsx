@@ -27,8 +27,8 @@ function Home() {
 
       if (response.status === "success") {
         setBudgets(
-          response.data.budgets.sort((a, b) =>
-            a.createdAt < b.createdAt ? 1 : -1,
+          response.data.budgets.sort(
+            (a, b) => new Date(b.createdAt) - new Date(a.createdAt),
           ),
         );
         setOrganization(response.data.organization);
@@ -78,13 +78,15 @@ function Home() {
       <div className="grid-sm">
         <div className="grid-lg">
           <div className="flex-lg">
-            <AddBudgetForm
-              {...{
-                budget,
-                setBudget,
-                createBudget,
-              }}
-            />
+            {userrole !== "employee" && (
+              <AddBudgetForm
+                {...{
+                  budget,
+                  setBudget,
+                  createBudget,
+                }}
+              />
+            )}
             <div className="flex-col-lg">
               <div className="flex-col-sm">
                 <h2>Organization Budget</h2>

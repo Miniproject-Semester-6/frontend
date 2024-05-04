@@ -1,10 +1,9 @@
 import { Link } from "react-router-dom";
-import { BanknotesIcon } from "@heroicons/react/24/solid";
 import { DocumentChartBarIcon } from "@heroicons/react/24/solid";
 
 import { formatCurrency, formatPercentage } from "helpers/helpers";
 
-export default function BudgetItem({ budget, hideBtn }) {
+export default function BudgetItemAnalysis({ budget }) {
   const { name, _id, color, amount, spend } = budget;
 
   return (
@@ -21,14 +20,12 @@ export default function BudgetItem({ budget, hideBtn }) {
         <small>{formatCurrency(amount - spend)} remaining</small>
       </div>
 
-      {!hideBtn && (
-        <div className="flex-sm">
-          <Link to={`/budget-overview/${_id}`} className="btn">
-            <span>Edit Budget</span>
-            <BanknotesIcon width={20} />
-          </Link>
-        </div>
-      )}
+      <div className="flex-sm">
+        <Link to={`/budget-analysis/${_id}`} className="btn">
+          <span>Analyze Budget</span>
+          <DocumentChartBarIcon width={20} />
+        </Link>
+      </div>
     </div>
   );
 }

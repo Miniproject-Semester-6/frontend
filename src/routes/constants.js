@@ -4,6 +4,8 @@ import Login from "pages/auth/login/Login";
 import Home from "pages/home/Home";
 import BudgetOverview from "pages/budgetOverview/BudgetOverview";
 import SelectOrganization from "pages/auth/selectOrganization/SelectOrganization";
+import Insights from "pages/insights/Insights";
+import BudgetAnalysis from "pages/budgetAnalysis/BudgetAnalysis";
 
 export const authRoutes = [
   {
@@ -24,11 +26,20 @@ export const protectedRoutes = [
     component: <Home />,
     title: "Home",
   },
-
   {
     path: "/budget-overview/:id",
     component: <BudgetOverview />,
     title: "Budget Overview",
+  },
+  {
+    path: "/insights",
+    component: <Insights />,
+    title: "Insights",
+  },
+  {
+    path: "/budget-analysis/:id",
+    component: <BudgetAnalysis />,
+    title: "Budget Analysis",
   },
 ];
 

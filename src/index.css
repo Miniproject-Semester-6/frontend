@@ -633,3 +633,11 @@ table a {
   margin-left: auto;
   margin-right: var(--space-sm);
 }
+
+.nav_link {
+  margin-right: var(--space-sm);
+}
+
+.nav_link:hover {
+  color: hsl(var(--accent));
+}

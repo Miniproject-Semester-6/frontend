@@ -8,9 +8,7 @@ export default function AddExpenseForm({
 }) {
   return (
     <div className="form-wrapper">
-      <h2 className="h3">
-        Add New <span className="accent">{budget.name}</span> Expense
-      </h2>
+      <h2 className="h3">Add New Expense</h2>
       <form
         className="grid-sm"
         onSubmit={(e) => {

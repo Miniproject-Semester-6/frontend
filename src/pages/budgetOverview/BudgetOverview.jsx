@@ -27,10 +27,11 @@ export default function BudgetOverview() {
 
       if (response.status === "success") {
         setExpenses(
-          response.data.expenses.sort((a, b) =>
-            a.createdAt < b.createdAt ? 1 : -1,
+          response.data.expenses.sort(
+            (a, b) => new Date(b.createdAt) - new Date(a.createdAt),
           ),
         );
+
         setBudget(response.data.budget);
       }
     } catch (error) {
@@ -75,10 +76,6 @@ export default function BudgetOverview() {
         "--accent": budget.color,
       }}
     >
-      <h1 className="h2">
-        <span className="accent">{budget.name} </span>
-        Overview
-      </h1>
       <div className="flex-lg">
         <BudgetItem budget={budget} hideBtn={true} />
         <AddExpenseForm
@@ -93,7 +90,7 @@ export default function BudgetOverview() {
 
       <div className="grid-md">
         <h2>
-          <span className="accent">{budget.name} Expenses</span>
+          <span className="accent">Expenses</span>
         </h2>
         {expenses.length !== 0 && (
           <ExpenseTable expenses={expenses} showBudget={false} />

@@ -8,6 +8,7 @@ import { ArrowRightEndOnRectangleIcon } from "@heroicons/react/24/solid";
 
 function Navigation() {
   const orgid = localStorage.getItem("orgid");
+  const userrole = localStorage.getItem("role");
   const navigate = useNavigate();
   const [orgs, setOrgs] = useState([]);
 
@@ -42,10 +43,19 @@ function Navigation() {
 
   return (
     <nav>
-      <NavLink to="/home" aria-label="Go to home">
+      <NavLink className={"nav_link"} to="/home" aria-label="Go to home">
         <img src={logomark} alt="" height={30} />
         <span>Home</span>
       </NavLink>
+      {userrole === "owner" && (
+        <NavLink
+          className={"nav_link"}
+          to="/insights"
+          aria-label="Go to insights"
+        >
+          <span>Insights</span>
+        </NavLink>
+      )}
       <div className="org_selector">
         <select
           value={orgid}
